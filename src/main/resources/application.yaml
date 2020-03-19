@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: ${RDS_USERNAME}
+      password: ${RDS_PASSWORD}
+      database: ${RDS_DB_NAME}
+      port: ${RDS_PORT}
+      host: ${RDS_HOSTNAME}

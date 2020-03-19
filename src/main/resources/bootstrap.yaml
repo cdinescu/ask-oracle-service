@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ask-oracle-service
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      uri: http://config-server:8012
+      name: config-server
+      failFast: true
+      retry:
+        maxAttempts: 20
+
+server:
+  port: 0
