@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Pageable;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
@@ -20,6 +21,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @WebFluxTest(CholineController.class)
+@DirtiesContext
 public class CholineControllerTest {
     public static final String BASE_PATH = "/top-richest-foods/choline";
 
