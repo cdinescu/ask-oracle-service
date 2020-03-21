@@ -8,6 +8,7 @@ class AskOracleApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// see here if the application context is OK
 	}
 
 }
