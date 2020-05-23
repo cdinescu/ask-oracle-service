@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.2.5.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id 'jacoco'
 }
 
 group = 'com.vitanum'
@@ -20,6 +21,9 @@ repositories {
 
 ext {
 	set('springCloudVersion', "Hoxton.SR1")
+}
+jacoco {
+    toolVersion = "0.8.5"
 }
 
 dependencies {
@@ -59,3 +63,13 @@ if (hasProperty('buildScan')) {
         termsOfServiceAgree = 'yes'
     }
 }
+jacocoTestReport {
+    reports {
+        xml.enabled true
+		xml.destination file("${buildDir}/reports/jacoco/report.xml")
+        csv.enabled false
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
