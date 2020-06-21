@@ -18,7 +18,7 @@ public class CholineController {
     @Autowired
     private CholineRepository repository;
 
-    @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Choline> getRichestFoods(@RequestParam(defaultValue = "25") Integer maxRecordCount) {
         return repository.findByOrderByQuantityDesc(PageRequest.of(0, maxRecordCount));
     }

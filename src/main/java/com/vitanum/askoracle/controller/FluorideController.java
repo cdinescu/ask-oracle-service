@@ -18,7 +18,7 @@ public class FluorideController {
     @Autowired
     private FluorideRepository repository;
 
-    @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Fluoride> getRichestFoods(@RequestParam(defaultValue = "25") Integer maxRecordCount) {
         return repository.findByOrderByQuantityDesc(PageRequest.of(0, maxRecordCount));
     }
