@@ -18,7 +18,7 @@ public class VitaminCController {
     @Autowired
     private VitaminCRepository repository;
 
-    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<VitaminC> getRichestFoods(@RequestParam(defaultValue = "25") Integer maxRecordCount) {
         return repository.findByOrderByQuantityDesc(PageRequest.of(0, maxRecordCount));
     }

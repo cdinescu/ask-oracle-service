@@ -18,7 +18,7 @@ public class MagnesiumController {
     @Autowired
     private MagnesiumRepository repository;
 
-    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<Magnesium> getRichestFoods(@RequestParam(defaultValue = "25") Integer maxRecordCount) {
         return repository.findByOrderByQuantityDesc(PageRequest.of(0, maxRecordCount));
     }

@@ -15,7 +15,6 @@ public class WebClientTestUtils {
     public static void sendRequestAndVerify(WebTestClient theClient, String theUrl, Class theBodyClass, List<? extends Nutrient> theExpectedEntries) {
         theClient.get()
                 .uri(theUrl)
-                //.accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(theBodyClass)
