@@ -4,6 +4,7 @@ import com.vitanum.askoracle.entity.Carbohydrate;
 import com.vitanum.askoracle.repository.CarbohydrateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +18,7 @@ public class CarbohydrateController {
     @Autowired
     private CarbohydrateRepository repository;
 
-    @GetMapping
+    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Carbohydrate> getRichestFoods(@RequestParam(defaultValue = "25") Integer maxRecordCount) {
         return repository.findByOrderByQuantityDesc(PageRequest.of(0, maxRecordCount));
     }
